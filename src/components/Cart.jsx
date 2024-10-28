@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux";
 import data from "../assets/data";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../redux/redux";
+import { cartSlice, removeFromCart } from "../redux/redux";
 
 function Cart() {
-  const menu = useSelector((state) => state.menuReducer);
-  const cart = useSelector((state) => state.cartReducer);
+  // Redux
+  // const menu = useSelector((state) => state.menuReducer);
+  // const cart = useSelector((state) => state.cartReducer);
+
+  // Redux Toolkit
+  const menu = useSelector((state) => state.menu);
+  const cart = useSelector((state) => state.cart);
 
   if (!menu)
     return (
@@ -55,7 +60,8 @@ function CartItem({ item, options, quantity }) {
       <button
         className="cart-item-delete"
         onClick={() => {
-          dispatch(removeFromCart(item.id));
+          // dispatch(removeFromCart(item.id));
+          dispatch(cartSlice.actions.removeFromCart({ id: item.id }));
         }}
       >
         삭제

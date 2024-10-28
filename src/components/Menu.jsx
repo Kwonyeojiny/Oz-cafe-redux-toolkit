@@ -4,7 +4,11 @@ import OrderModal from "./OrderModal";
 import { useSelector } from "react-redux";
 
 function Menu() {
-  const menu = useSelector((state) => state.menuReducer);
+  // Redux
+  // const menu = useSelector((state) => state.menuReducer);
+
+  // Redux Toolkit
+  const menu = useSelector((state) => state.menu);
 
   const [modalOn, setModalOn] = useState(false);
   const [modalMenu, setModalMenu] = useState(null);
